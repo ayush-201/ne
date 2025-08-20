@@ -30,7 +30,7 @@ df = pd.DataFrame(data)
 df["Response_Time"] = df["Response_Time"].clip(lower=0)
 
 # Plot violinplot
-plt.figure(figsize=(8, 8))  # 512x512 pixels approx at 64 dpi
+plt.figure(figsize=(8, 8))  # This should give 512x512 at 64 dpi
 ax = sns.violinplot(x="Support_Channel", y="Response_Time", data=df,
                     hue="Support_Channel", palette=palette, inner="quartile", legend=False)
 
@@ -41,5 +41,5 @@ ax.set_xlabel("Support Channel")
 ax.set_ylabel("Response Time (minutes)")
 
 # Save the figure with exact output size
-plt.savefig("chart.png", dpi=64, bbox_inches="tight")
+plt.savefig("chart.png", dpi=64) # Removed bbox_inches='tight'
 plt.close()
