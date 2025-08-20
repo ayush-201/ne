@@ -32,7 +32,8 @@ df["Response_Time"] = df["Response_Time"].clip(lower=0)
 # Plot violinplot
 plt.figure(figsize=(8, 8))  # 512x512 pixels approx at 64 dpi
 ax = sns.violinplot(x="Support_Channel", y="Response_Time", data=df,
-                    palette=palette, inner="quartile")
+                    hue="Support_Channel", palette=palette, inner="quartile", legend=False)
+
 
 # Titles and labels
 ax.set_title("Distribution of Customer Support Response Times by Channel")
